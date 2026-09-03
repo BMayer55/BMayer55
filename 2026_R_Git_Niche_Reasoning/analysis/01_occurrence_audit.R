@@ -23,7 +23,14 @@ head(occ_raw[, c("species", "decimalLongitude", "decimalLatitude", "basisOfRecor
 # Report: data types; missing coordinates; basisOfRecord; and one feature
 # you would investigate before using the records in a model.
 
-
+str(occ_raw)
+summary(occ_raw)
+table(occ_raw)
+table(occ_raw[20,10])
+is.na(occ_raw)
+names(occ_raw)
+is.na(occ_raw$basisOfRecord)
+table(occ_raw$basisOfRecord)
 
 # Problem 2. Define two transparent quality-control rules.
 # Rule 1 will check coordinates. Rule 2 will examine duplicate records,
@@ -46,7 +53,31 @@ keep_coordinates <- !is.na(occ_raw$decimalLongitude) &
   occ_raw$decimalLongitude != 0 &
   occ_raw$decimalLatitude != 0
 
-# Guided baseline for keep_second_rule
+first_rule <- !is.na(occ_raw$decimalLongitude) & !is.na(occ_raw$decimalLatitude) &
+  occ_raw$decimalLongitude <= -86 & 
+  occ_raw$decimalLongitude >= -118 &
+  occ_raw$decimalLatitude >= 15 &
+  occ_raw$decimalLatitude <= 24 &
+  occ_raw$decimalLongitude != 0 &
+  occ_raw$decimalLatitude != 0
+#I tried to restrict the coordinates to only contain data from the americas
+#this didn't exclude anything so I changed it to only the tropical region of Mexico
+table(first_rule)
+
+table(occ_raw$eventDate)
+second_rule <- !is.na(occ_raw$eventDate) &
+  occ_raw$eventDate >= 2000-01-01
+table(second_rule)
+#here I tried to limit the data to anything after 1980 since some of the records are pretty old
+
+keep <- first_rule & second_rule
+occ_retained <- occ_raw[keep, ]
+table(occ_retained)
+dim(occ_retained)
+names(occ_retained)
+
+
+#Guided baseline for keep_second_rule
 # round(..., 2) is approximately 1 km
 # round(..., 1) is approximately 10 km
 
@@ -61,20 +92,24 @@ keep_second_rule <- !duplicated(coordinate_cell)
 # Problem 3. Quantify the effect of your decisions.
 # Report how many records are retained and excluded by each rule and together.
 
-
+dim(occ_retained)
+table(first_rule)
+dim(second_rule)
+table(second_rule)
 
 # Problem 4. Create a diagnostic map.
 # After you define occ_retained, use the following code to put a map in your output folder.
 
-# png("output/occurrence_audit_map.png", width = 1600, height = 1200, res = 180)
-# plot(occ_raw$decimalLongitude, occ_raw$decimalLatitude,
-#      pch = 16, col = "grey70", xlab = "Longitude", ylab = "Latitude",
-#      main = "Crotalus triseriatus: raw and retained occurrence records")
-# points(occ_retained$decimalLongitude, occ_retained$decimalLatitude,
-#        pch = 16, col = "black")
-# legend("topleft", legend = c("Raw", "Retained"),
-#        pch = 16, col = c("grey70", "black"), bty = "n")
-# dev.off()
+ 
+png("output/occurrence_audit_map.png", width = 1600, height = 1200, res = 180)
+plot(occ_raw$decimalLongitude, occ_raw$decimalLatitude,
+      pch = 16, col = "grey70", xlab = "Longitude", ylab = "Latitude",
+     main = "Crotalus triseriatus: raw and retained occurrence records")
+ points(occ_retained$decimalLongitude, occ_retained$decimalLatitude,
+        pch = 16, col = "black")
+ legend("topleft", legend = c("Raw", "Retained"),
+        pch = 16, col = c("grey70", "black"), bty = "n")
+ dev.off()
 
 
 
