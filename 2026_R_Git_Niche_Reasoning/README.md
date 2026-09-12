@@ -57,3 +57,18 @@ favorable place.
 Briefly state any AI use for debugging, code clarification, or writing support.
 
 #I did use Chatgpt to help me with understanding what some functions do as well as figuring out which coordinates to use, but all the coding is mine.
+
+
+LAB 2
+#Problem 2
+#I modified the map by adding axis titles. I went the route of making it more presentable rather than honing the figure.
+
+#Problem 3
+#I reduced the M distance down to 50km rather than 100km. My reasoning was that snakes typically don't travel great distances so the movement area should probably be smaller than 100km.
+#The distance buffer may not represent the true M distance since there is no data on barriers to dispersal being represented. Those may be geographic barriers or human disturbance which create fragments area that could actually be travelled.
+#We also don't have data on the behavior of this species. If we knew their daily distance traveled or mating behaviors than we could infer a better distance buffer.
+
+#Problem 4
+#For "A" I would choose temperature. Given snakes are ectotherms, they are restricted to hotter climates in general. Their abiotically suitable area would have to be partly calculated by climate data like temperature.
+#For "B" I would add occurrence data of their most eaten prey. I'm assuming they eat a variety of prey but there is probaly a staple species that takes up a large portion of their diet. They may be able to live in certain areas but without the proper prey they can't survive there.
+#Neither map identifies A or B since we only defined M using the distance buffer.
