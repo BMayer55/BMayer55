@@ -25,7 +25,7 @@ head(occ_raw[, c("species", "decimalLongitude", "decimalLatitude", "basisOfRecor
 
 str(occ_raw)
 summary(occ_raw)
-table(occ_raw)
+#table(occ_raw)
 table(occ_raw[20,10])
 is.na(occ_raw)
 names(occ_raw)
@@ -72,7 +72,7 @@ table(second_rule)
 
 keep <- first_rule & second_rule
 occ_retained <- occ_raw[keep, ]
-table(occ_retained)
+#table(occ_retained)
 dim(occ_retained)
 names(occ_retained)
 

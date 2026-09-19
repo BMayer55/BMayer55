@@ -72,3 +72,24 @@ LAB 2
 #For "A" I would choose temperature. Given snakes are ectotherms, they are restricted to hotter climates in general. Their abiotically suitable area would have to be partly calculated by climate data like temperature.
 #For "B" I would add occurrence data of their most eaten prey. I'm assuming they eat a variety of prey but there is probaly a staple species that takes up a large portion of their diet. They may be able to live in certain areas but without the proper prey they can't survive there.
 #Neither map identifies A or B since we only defined M using the distance buffer.
+
+
+LAB 3
+# 1. Describe the environmental layers, including units, spatial extent, and spatial grain.
+# We used climate data from WorldClim for the envrionmental layers. Those include the min, max, and mean for temperature in Celsius and rainfall in mm.
+# SpatExtent : -118, -86, 14, 47 (xmin, xmax, ymin, ymax) The plot covers most of Central and North America exluding the northernmost parts. 10-arc minute (or 18.5km) was the resolution size for the E-space.
+
+#2. What does a background point represent? Why is it not an absence?
+#background points are random points chosen to represent the envrionment where a species could be. They are not true absences because the species may exist there but have not been observed or are not able to occupy the space for some reason.
+
+
+# 3. Which broad-M distance did you select, and what biological assumption does it represent?
+#I chose to decrease the broad-M to 150km. I chose a smaller broad distance because snakes have small bodies and probably do not travel very far. If I were using data from migratory herbivores I would likely use a much bigger broad-M distance.
+
+
+# 4. How did changing M alter the sampled environmental space?
+#after I changed M to 150 from 250km the boundary lines shrunk. In the 250km plot there are areas with seemingly no E-data, there is just white space within the broad M-buffer. I think the 150km plot fits the occurrence points better as there is no white space but I'm still not super confident on interpreting the plot.
+
+
+# 5. Which interpretation is stable, conditional, or unstable, and what additional assumption would you test next?
+#Like I mentioned in the question above, I'm not too confident on interpreting whether each plot is stable or not. The broad-M plot especially has a lot going on so it's hard fro me to decipher what is being represented. Does the white space within the red borders represent areas that are not suitable or able to be occupied by the species? Or does it come from a lack of data? Either way I'd say the 150km plot is more stable than the 250km plot. The buffer distance seems to better fit the occurrence points but I can't interpret much further. 

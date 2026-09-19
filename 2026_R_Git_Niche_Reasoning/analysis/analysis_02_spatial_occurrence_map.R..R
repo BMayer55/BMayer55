@@ -4,7 +4,7 @@ library(sf)
 library(ggplot2)
 library(rnaturalearth)
 
-source("01_occurrence_audit.R")
+source("analysis/01_occurrence_audit.R")
 stopifnot(exists("occ_retained"))
 nrow(occ_retained)
 
