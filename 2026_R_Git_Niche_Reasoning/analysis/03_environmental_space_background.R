@@ -113,7 +113,7 @@ points(bg_broad, pch = 3, cex = 0.45, col = "firebrick4")
 points(vect(occ_sf), pch = 16, cex = 0.45, col = "black")
 
 # this function below closes the png() file
-# dev.off()
+dev.off()
 
 # -----------------------------------------------------------------------------
 # Compare the assumptions in environmental space
