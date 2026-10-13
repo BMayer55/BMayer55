@@ -93,3 +93,15 @@ LAB 3
 
 # 5. Which interpretation is stable, conditional, or unstable, and what additional assumption would you test next?
 #Mean precipitation decreases as the M-distance increases. Occurrences are found in spaces with higher precipitation. This is stable with both plots, the mean precipitation of the 50km plot is 800mm and the 150km plot is 776mm, which are both smaller than the occurrence mean which is 975mm. This means occurrences are concentrated in areas with high precipitation. And defining a larger M-distance will introduce more E-data where the precipitation is lower. I would play around with making M bigger and smaller to see if the pattern persists.
+
+
+
+
+
+LAB 4
+
+#1. The coarse and fine values for temperature were very similar, I noticed  a difference of + or - 2 or 3 at most. The temperature had much greater differences, up to + or - 80. This is probably due to temperature being an even gradient in most areas. However precipitation can vary wildly so depending on the size of the cell, your values might change greatly. Fine cells have the potential to capture really high or low values since they don't get averaged out surrounding areas; the coarse grid would most likely have a smaller range of values since it can capture multiple areas with very different precipitation values.
+
+#2. The transformation compressed the extreme values, which heavily skewed the distribution, into a histogram which is easier to interpret because smaller changes are able to be seen better.
+
+#3. I remember the resolution or something similar being important when combining environmental layers with themselves or occurrence records. I could see that being an issue if the occurrence records are too close for a broad raster to capture differences. 
